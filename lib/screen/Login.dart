@@ -5,15 +5,9 @@ import 'package:untitled1/screen/Dashboard.dart';
 import 'package:untitled1/screen/Sighn_up.dart';
 import 'package:untitled1/utils/color_util.dart';
 import '../reusable_widget/_ToggleButtonsSampleState.dart';
-
 import '../reusable_widget/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-const List<Widget> fruits = <Widget>[
-  Text('Apple'),
-  Text('Banana'),
-  Text('Orange')
-];
 
 
 class Login extends StatefulWidget {
@@ -40,9 +34,7 @@ class _LoginState extends State<Login> {
         child: Container(
           padding: const EdgeInsets.fromLTRB(20,0,20,0),
           child: Column(
-
               children: <Widget>[
-
               Container(
                 child: logoWidget("assets/images/img.png"),
               ),
@@ -53,13 +45,12 @@ class _LoginState extends State<Login> {
                     child: Text("Sign-In", style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),),
                   ),
                 ),
-
                 reusableTextField("Enter UserName", Icons.person_outline, false, emailTextController),
                       SizedBox(
                           height: 20,
                         ),
                         reusableTextField("Enter Password", Icons.lock_clock_outlined, true, passwordTextController),
-                        SizedBox(
+                      SizedBox(
                           height: 20,
                         ),
                 TextButton(
@@ -79,7 +70,6 @@ class _LoginState extends State<Login> {
                        MaterialPageRoute(builder: (context)=>Dashboard())
                       );
                 }
-
                  );
              }),
               Row(

@@ -5,7 +5,6 @@ Image logoWidget(String imageName) {
     fit: BoxFit.fitWidth,
     width: 288,
     height: 303,
-
   );
 }
 
@@ -13,7 +12,6 @@ TextField reusableTextField(String text, IconData icon,bool isPasswordType,
     TextEditingController controller){
   return TextField(
     controller: controller,
-
     obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
@@ -32,13 +30,11 @@ TextField reusableTextField(String text, IconData icon,bool isPasswordType,
       border:OutlineInputBorder(
         borderRadius: BorderRadius.circular(20.0),
         borderSide: const BorderSide(width:0.5,style: BorderStyle.none,),
-
       )
     ),
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
         : TextInputType.emailAddress,
-
   );
 }
 

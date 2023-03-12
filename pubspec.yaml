@@ -38,6 +38,8 @@ dependencies:
   firebase_auth: ^4.2.7
   firebase_core: ^2.6.0
   cloud_firestore: ^4.4.4
+  carousel_pro: ^1.0.0
+  font_awesome_flutter: ^10.4.0
 
 
 dev_dependencies:

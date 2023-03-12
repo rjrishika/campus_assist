@@ -19,13 +19,8 @@ class _Sighn_upState extends State<Sighn_up> {
   TextEditingController passwordTextController = TextEditingController();
   TextEditingController emailTextController = TextEditingController();
   TextEditingController userNameTextController = TextEditingController();
-  // String allowedDomains = "bitdurg.ac.in"; // replace with your allowed domains
-  // RegExp emailRegex = new RegExp(r'^\w+([\.-]?\w+)*@('+"bitdurg.ac.in"+')$');
   late String password;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +29,11 @@ class _Sighn_upState extends State<Sighn_up> {
         child: Container(
         padding: const EdgeInsets.fromLTRB(20,10,20,0),
         child: Column(
-
             children: <Widget>[
-
                Stack(
                 children: [
                Align(
                  alignment: Alignment(-1.08, -0.8),
-
                  child: IconButton(
                  onPressed: (){},
                  icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,) ,
@@ -49,7 +41,6 @@ class _Sighn_upState extends State<Sighn_up> {
                ),
                 ],
               ),
-
               Positioned(
                 child:  Container(
                   alignment: Alignment(-1.0, -0.8),
@@ -65,17 +56,15 @@ class _Sighn_upState extends State<Sighn_up> {
                 SizedBox(
                   height: 20,
                 ),
-              reusableTextField("Enter Password", Icons.lock_clock_outlined, true, passwordTextController),
-              SizedBox(
-                height: 20,
-              ),
-              reusableTextField("Confirm Password", Icons.lock_clock_outlined, true, passwordTextController),
-              SizedBox(
-                height: 20,
-              ),
+                reusableTextField("Enter Password", Icons.lock_clock_outlined, true, passwordTextController),
+                SizedBox(
+                  height: 20,
+                ),
+                reusableTextField("Confirm Password", Icons.lock_clock_outlined, true, passwordTextController),
+                SizedBox(
+                  height: 20,
+                ),
               loginSignupButton(context, false,()  async{
-
-
                 FirebaseAuth.instance
                     .createUserWithEmailAndPassword(email: emailTextController.text,
                     password: passwordTextController.text)
@@ -87,7 +76,6 @@ class _Sighn_upState extends State<Sighn_up> {
                 }).onError((error,stackTrace){
                   print("Error ${error.toString()}");
                 });
-
               }),
               Row(
                 children: <Widget>[
@@ -106,7 +94,6 @@ class _Sighn_upState extends State<Sighn_up> {
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
-
     ]
     )
     )

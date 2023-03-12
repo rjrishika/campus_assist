@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/screen/Club_details.dart';
+import 'package:untitled1/screen/Clubs.dart';
 import 'package:untitled1/screen/Login.dart';
 
 void main() async {
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      home: const Club_details(),
     );
   }
 }
