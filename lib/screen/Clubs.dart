@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'Club_details.dart';
+
 class Clubs extends StatefulWidget {
   const Clubs({Key? key}) : super(key: key);
 
@@ -76,6 +78,9 @@ class _ClubsState extends State<Clubs> {
                           subtitle: Text('Technical Club',style:TextStyle(color: Colors.blue),),
 
                           onTap: (){
+
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=>Club_details()));
 
                           },
 
