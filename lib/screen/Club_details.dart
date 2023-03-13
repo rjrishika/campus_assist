@@ -57,7 +57,7 @@ class _Club_detailsState extends State<Club_details> {
                   color: Colors.black,
                   size: 50.0,
                 ),
-
+[]
                 Icon(
                   Icons.groups,
                   color: Colors.black,
