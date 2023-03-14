@@ -22,21 +22,21 @@ class _Club_detailsState extends State<Club_details> {
       body:Column(
 
         children: [
+         SafeArea(child: Stack(
+           children: [
+             Image.asset('assets/images/event.png'),
+             IconButton(
+               onPressed: (){
 
-          Stack(
-            children: [
-              Image.asset('assets/images/event.png'),
-              IconButton(
-                onPressed: (){
+                 Navigator.push(context,
+                     MaterialPageRoute(builder: (context)=>Clubs()));
 
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context)=>Clubs()));
+               },
+               icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,) ,
+             ),
+           ],
+         ),),
 
-                },
-                icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,) ,
-              ),
-            ],
-          ),
 
           Positioned(
             child:  Container(
@@ -57,7 +57,7 @@ class _Club_detailsState extends State<Club_details> {
                   color: Colors.black,
                   size: 50.0,
                 ),
-[]
+
                 Icon(
                   Icons.groups,
                   color: Colors.black,

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:untitled1/screen/Dashboard.dart';
 import '../reusable_widget/reusable_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -70,11 +72,31 @@ class _Sighn_upState extends State<Sighn_up> {
                     password: passwordTextController.text)
 
                 .then((value){
-                  FirebaseFirestore.instance.collection('users').add({'name': userNameTextController.text,'email':emailTextController});
-                  Navigator.push(context,
-                     MaterialPageRoute(builder: (context)=>Dashboard()));
+
+
+
+                  // That's it to display an alert, use other properties to customize.
+                  FirebaseFirestore.instance.collection('users').add({'name': userNameTextController.text,'email':emailTextController.text});
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.success,
+                    text: 'login',
+                    confirmBtnText: 'Yes',
+                    onConfirmBtnTap: ()=>{
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=>Dashboard())
+                      )
+                    },
+                    confirmBtnColor: Colors.green,
+                  );
+
                 }).onError((error,stackTrace){
-                  print("Error ${error.toString()}");
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.error,
+                    title: 'Oops...',
+                    text: 'Account alreay exist',
+                  );
                 });
               }),
               Row(

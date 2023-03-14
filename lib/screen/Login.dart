@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:untitled1/screen/Dashboard.dart';
 import 'package:untitled1/screen/Sighn_up.dart';
 import 'package:untitled1/utils/color_util.dart';
@@ -66,12 +68,28 @@ class _LoginState extends State<Login> {
                      email: emailTextController.text,
                      password: passwordTextController.text)
                     .then((value) {
-                      Navigator.push(context,
-                       MaterialPageRoute(builder: (context)=>Dashboard())
-                      );
-                }
-                 );
-             }),
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.success,
+                    text: 'login',
+                    confirmBtnText: 'Yes',
+                    onConfirmBtnTap: ()=>{
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Dashboard())
+                    )
+                    },
+                    confirmBtnColor: Colors.green,
+                  );
+
+                }).onError((error, stackTrace){
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.error,
+                    title: 'Oops...',
+                    text: 'Wrong Credential',
+                  );
+                });
+               }),
               Row(
                 children: <Widget>[
                   const Text('Does not have account?',style:TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold), ),
