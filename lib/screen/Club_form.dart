@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../reusable_widget/reusable_widget.dart';
 
 class Club_form extends StatefulWidget {
@@ -21,17 +20,17 @@ class _Club_formState extends State<Club_form> {
         body: SingleChildScrollView(
         child: Container(
         padding: const EdgeInsets.fromLTRB(20,10,20,0),
-    child: Column(
-    children: <Widget>[
-    Stack(
+            child: Column(
+            children: <Widget>[
+              Stack(
     children: [
     Align(
-    alignment: Alignment(-1.08, -0.8),
-    child: IconButton(
-    onPressed: (){},
-    icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,) ,
-    ),
-    ),
+      alignment: Alignment(-1.08, -0.8),
+      child: IconButton(
+      onPressed: (){},
+      icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,),
+      ),
+     ),
     ],
     ),
     Positioned(
@@ -49,13 +48,9 @@ class _Club_formState extends State<Club_form> {
     SizedBox(
     height: 20,
     ),
-
-
-
     ])
     )
         )
     );
   }
-
 }
