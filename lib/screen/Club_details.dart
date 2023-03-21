@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,14 +6,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../reusable_widget/reusable_widget.dart';
 import 'Clubs.dart';
 
-class Club_details extends StatefulWidget {
-  const Club_details({Key? key}) : super(key: key);
+class Club_details extends StatelessWidget {
+  final DocumentSnapshot snap;
+
+  const Club_details({Key? key, required this.snap}): super(key: key);
 
   @override
-  State<Club_details> createState() => _Club_detailsState();
-}
+  // State<Club_details> createState() => _Club_detailsState();
+// }
+//
+// class _Club_detailsState extends State<Club_details> {
 
-class _Club_detailsState extends State<Club_details> {
+
 
 
   @override
@@ -28,6 +33,7 @@ class _Club_detailsState extends State<Club_details> {
              IconButton(
                onPressed: (){
 
+
                  Navigator.push(context,
                      MaterialPageRoute(builder: (context)=>Clubs()));
 
@@ -42,7 +48,7 @@ class _Club_detailsState extends State<Club_details> {
             child:  Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(bottom: 20),
-              child: Text("Hackreboot", style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
+              child: Text(snap['name'].toString(),style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
 
             ),
 

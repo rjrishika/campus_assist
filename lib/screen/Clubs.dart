@@ -85,8 +85,14 @@ class _ClubsState extends State<Clubs> {
                           child: ListTile(
                             // leading: Image.network(snap['logo'].toString()),
                             title: Text(snap['name'].toString()),
+
                             subtitle: Text(snap['desc'].toString()),
                             onTap: (){
+                              name:snap['name'];
+                              desc:snap['desc'];
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=>Club_details(snap: snap,
+                                  )));
 
                             },
 
