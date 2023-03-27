@@ -7,7 +7,7 @@ import 'package:untitled1/screen/Login.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       apiKey: "AIzaSyC3BWquWmM8d5hJuZcljBD3mOp16BBGMI8",
       appId: "1:219218681327:android:8c2c1e75679daa6abfea1a",
       messagingSenderId: "219218681327",
@@ -42,4 +42,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
