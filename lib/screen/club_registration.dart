@@ -36,16 +36,25 @@ class _ClubRegistrationState extends State<ClubRegistration> {
             ),
           ),
         ),
-        drawer: const Drawer(
-          child: Text('Hello World'),
-        ),
+        drawer: appDrawer(),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.fromLTRB(20,0,20,0),
               //padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
               child: Column(
                 children: [
-                  const SizedBox(height: 50,width: 50,),
+                  const SizedBox(height: 30, width: 20,),
+                   Material(
+                     color: Colors.grey,
+                    borderRadius: BorderRadius.circular(50),
+                     child: Container(
+                       height: 100,
+                       width: 100,
+                       child: Image.asset("assets/images/imgUpload.png",
+                       ),
+                     ),
+                  ),
+                  const SizedBox(height: 20,width: 20,),
                   reusableTextField("Enter Club Name", Icons.abc, false, clubName),
                   const SizedBox(height: 20,width: 20,),
                   reusableTextField("Club Category", Icons.account_tree_outlined, false, clubCategory),
