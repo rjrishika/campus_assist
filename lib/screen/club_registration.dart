@@ -54,6 +54,17 @@ class _ClubRegistrationState extends State<ClubRegistration> {
                        ),
                      ),
                   ),
+                  const SizedBox(height: 10,width: 5,),
+                  InkWell(
+                    onTap: (){
+
+                      // code to upload Image
+
+                    },
+                    child: const Text("Upload Image", style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                    )),
                   const SizedBox(height: 20,width: 20,),
                   reusableTextField("Enter Club Name", Icons.abc, false, clubName),
                   const SizedBox(height: 20,width: 20,),
@@ -74,7 +85,7 @@ class _ClubRegistrationState extends State<ClubRegistration> {
 
                   resusableMultilineTextField("LinkedIn URL", false, 1, linkedinUrl,const Icon(FontAwesomeIcons.linkedin) ),
 
-                  const SizedBox(height: 20, width: 20,),
+                  //const SizedBox(height: 20, width: 20,),
 
         Container(
           padding: const EdgeInsets.fromLTRB(30,5,30,0),
