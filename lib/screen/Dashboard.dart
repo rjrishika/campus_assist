@@ -4,6 +4,8 @@ import 'package:untitled1/screen/Clubs.dart';
 import 'package:untitled1/screen/Login.dart';
 import 'package:untitled1/screen/Sidebar.dart';
 
+import '../reusable_widget/reusable_widget.dart';
+
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
@@ -33,72 +35,7 @@ class DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
-            drawer: Drawer(
-              child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      ListTile(
-                        leading: CircleAvatar(
-                          minRadius: 10,
-                          maxRadius: 20,
-                        ),
-                        title: Text(
-                          'User Name',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.person_outline),
-                        title: Text('My Profile'),
-                      ),
-
-                      //Academic Calender
-                      ListTile(
-                        leading: Icon(Icons.calendar_month_sharp),
-                        title: Text('Academic Calender'),
-                      ),
-
-                      //Attendance
-
-                      ListTile(
-                        leading: Icon(Icons.bookmark_border),
-                        title: Text('Attendance'),
-                      ),
-
-                      //Fee Recipt
-                      ListTile(
-                        leading: Icon(Icons.money_outlined),
-                        title: Text('Fee Recipt'),
-                      ),
-
-                      //My Profile
-                      ListTile(
-                        leading: Icon(Icons.settings),
-                        title: Text('My Profile'),
-                      ),
-
-                      //Help
-                      ListTile(
-                        leading: Icon(Icons.help_outline),
-                        title: Text('Help'),
-                      ),
-
-                      //Logout
-                      ListTile(
-                        leading: Icon(Icons.login_outlined),
-                        title: Text('Logout'),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            drawer: appDrawer(),
             body: SingleChildScrollView(
               child: Column(children: [
                 Padding(
