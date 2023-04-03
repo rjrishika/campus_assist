@@ -49,9 +49,7 @@ class Club_details extends StatelessWidget {
               alignment: Alignment.center,
               margin: EdgeInsets.only(bottom: 20),
               child: Text(snap['name'].toString(),style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
-
             ),
-
           ),
           Container(
               margin: EdgeInsets.only(bottom: 20),
@@ -98,7 +96,6 @@ class Club_details extends StatelessWidget {
                   ),
                 ],
               )
-
           ),
           Positioned(
             child:  Container(
@@ -165,9 +162,6 @@ class Club_details extends StatelessWidget {
     onTap: (){
 
     },
-
-
-
     ),
     ),
     Container(
@@ -193,14 +187,9 @@ class Club_details extends StatelessWidget {
     onTap: (){
 
     },
-
-
-
     ),
     ),
-
-
-        ],
+    ],
 
 
 
@@ -210,7 +199,6 @@ class Club_details extends StatelessWidget {
     )
 ]
     )
-
     );
 
   }
