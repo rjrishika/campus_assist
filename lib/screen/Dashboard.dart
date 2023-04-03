@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/screen/Clubs.dart';
 import 'package:untitled1/screen/Login.dart';
-import 'package:untitled1/screen/Sidebar.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
