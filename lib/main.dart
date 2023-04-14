@@ -19,6 +19,8 @@ void main() async {
     ),
 
   );
+
+
   runApp(const MyApp());
 }
 
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      home: const ClubRegistration(),
     );
   }
 }
