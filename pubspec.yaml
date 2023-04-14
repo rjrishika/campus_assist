@@ -47,7 +47,7 @@ dependencies:
   storage_repository: ^1.1.9
   equatable: ^2.0.5
   cross_file: ^0.3.3+4
-
+  gsheets: ^0.4.2
 
 
 dev_dependencies:
