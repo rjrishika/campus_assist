@@ -12,6 +12,7 @@ class AttendancePage extends StatefulWidget {
 
 class _AttendancePageState extends State<AttendancePage> {
   TextEditingController branchTextController = TextEditingController();
+  TextEditingController subjectTextController = TextEditingController();
 
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
@@ -49,6 +50,43 @@ class _AttendancePageState extends State<AttendancePage> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Padding(
+                  padding: EdgeInsets.all(16),
+                  child: PhysicalModel(
+                    color: Colors.white,
+                    elevation: 8,
+                    shadowColor: Color.fromRGBO(74, 67, 236, 10),
+                    borderRadius: BorderRadius.circular(20),
+                    child: TableCalendar(
+                      calendarFormat: _calendarFormat,
+                      onFormatChanged: (format) {
+                        setState(() {
+                          _calendarFormat = format;
+                        });
+                      },
+                      firstDay: DateTime.utc(2023, 1, 23),
+                      lastDay: DateTime.utc(2030, 3, 14),
+                      focusedDay: _focusedDay,
+                      rowHeight: 40,
+                      selectedDayPredicate: (day) {
+                        return isSameDay(_selectedDay, day);
+                      },
+                      onDaySelected: (selectedDay, focusedDay) {
+                        setState(() {
+                          _selectedDay = selectedDay;
+                          _focusedDay =
+                              focusedDay; // update `_focusedDay` here as well
+                        });
+                      },
+                      headerStyle: HeaderStyle(
+                          formatButtonVisible: false, titleCentered: true),
+                      availableGestures: AvailableGestures.all,
+                      onPageChanged: (focusedDay) {
+                        _focusedDay = focusedDay;
+                      },
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsets.all(16),
                   child: PhysicalModel(
@@ -113,46 +151,9 @@ class _AttendancePageState extends State<AttendancePage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: reusableTextField("Enter Subject",
-                              Icons.menu_book, false, branchTextController),
+                              Icons.menu_book, false, subjectTextController),
                         ),
                       ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(16),
-                  child: PhysicalModel(
-                    color: Colors.white,
-                    elevation: 8,
-                    shadowColor: Color.fromRGBO(74, 67, 236, 10),
-                    borderRadius: BorderRadius.circular(20),
-                    child: TableCalendar(
-                      calendarFormat: _calendarFormat,
-                      onFormatChanged: (format) {
-                        setState(() {
-                          _calendarFormat = format;
-                        });
-                      },
-                      firstDay: DateTime.utc(2023, 1, 23),
-                      lastDay: DateTime.utc(2030, 3, 14),
-                      focusedDay: _focusedDay,
-                      rowHeight: 40,
-                      selectedDayPredicate: (day) {
-                        return isSameDay(_selectedDay, day);
-                      },
-                      onDaySelected: (selectedDay, focusedDay) {
-                        setState(() {
-                          _selectedDay = selectedDay;
-                          _focusedDay =
-                              focusedDay; // update `_focusedDay` here as well
-                        });
-                      },
-                      headerStyle: HeaderStyle(
-                          formatButtonVisible: false, titleCentered: true),
-                      availableGestures: AvailableGestures.all,
-                      onPageChanged: (focusedDay) {
-                        _focusedDay = focusedDay;
-                      },
                     ),
                   ),
                 ),
