@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
+//import 'package:storage_repository/implementations/storage_repository.dart';
+import '../reusable_widget/storage_repository.dart';
 import '../reusable_widget/reusable_widget.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
@@ -18,7 +21,11 @@ class _ClubRegistrationState extends State<ClubRegistration> {
   TextEditingController instaUrl = TextEditingController();
   TextEditingController twitterUrl = TextEditingController();
   TextEditingController linkedinUrl = TextEditingController();
+
   CollectionReference clubData = FirebaseFirestore.instance.collection('clubs');
+  void upload_image() async{
+
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,7 +34,9 @@ class _ClubRegistrationState extends State<ClubRegistration> {
           toolbarHeight: 60,
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () async{
+
+                },
                 icon: const Icon(Icons.notifications_none_rounded))
           ],
           backgroundColor: const Color.fromRGBO(74, 67, 236, 10),
@@ -59,9 +68,22 @@ class _ClubRegistrationState extends State<ClubRegistration> {
                   ),
                   const SizedBox(height: 10,width: 5,),
                   InkWell(
-                    onTap: (){
+                    onTap: () async{
 
-                      // code to upload Image
+                      final XFile image;
+                      ImagePicker _picker= ImagePicker();
+                      image = (await _picker.pickImage(source: ImageSource.camera))!;
+
+                      if(image == null){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('no image was selected'))
+                      );
+                      }
+                      if(image != null){
+
+                      StorageRepository().uploadImage(image);
+                      print('uploading...');
+                      }
 
                     },
                     child: const Text("Upload Image", style: TextStyle(

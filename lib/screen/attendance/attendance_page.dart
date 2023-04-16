@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../googlesheets.dart';
+import '../sheetsColumn.dart';
 import 'attendance_brain.dart';
 
 AttendanceBrain attendanceBrain = AttendanceBrain();
@@ -10,7 +12,10 @@ class AttendancePage extends StatefulWidget {
   State<AttendancePage> createState() => _AttendancePageState();
 }
 
+
 class _AttendancePageState extends State<AttendancePage> {
+
+  int attendance = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,8 +81,19 @@ class _AttendancePageState extends State<AttendancePage> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          setState(() {
+                          setState(() async{
                             attendanceBrain.nextRoll();
+                            final feedback = {
+                              SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
+                              SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
+                              SheetsColumn.attendance: 'A'
+
+
+                            };
+                            print('object');
+                            print(feedback);
+
+                            await SheetsFlutter.insert([feedback]);
                             // print(attendanceBrain.getName() +
                             //     attendanceBrain.getRoll() +
                             //     attendanceBrain.getImgSrc());
@@ -96,9 +112,23 @@ class _AttendancePageState extends State<AttendancePage> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          setState(() {
+                          setState(() async{
                             attendanceBrain.nextRoll();
+                            final feedback = {
+                              SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
+                              SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
+                              SheetsColumn.attendance: 'p'
+
+
+                            };
+                            print('object');
+                            print(feedback);
+
+                            await SheetsFlutter.insert([feedback]);
+
                           });
+
+
                         },
                         child: Icon(Icons.check),
                         style: ButtonStyle(
