@@ -3,14 +3,14 @@ import 'package:table_calendar/table_calendar.dart';
 
 import '../../reusable_widget/reusable_widget.dart';
 
-class AttendancePage extends StatefulWidget {
-  const AttendancePage({Key? key}) : super(key: key);
+class CalendarPage extends StatefulWidget {
+  const CalendarPage({Key? key}) : super(key: key);
 
   @override
-  State<AttendancePage> createState() => _AttendancePageState();
+  State<CalendarPage> createState() => _CalendarPageState();
 }
 
-class _AttendancePageState extends State<AttendancePage> {
+class _CalendarPageState extends State<CalendarPage> {
   TextEditingController branchTextController = TextEditingController();
   TextEditingController subjectTextController = TextEditingController();
 
