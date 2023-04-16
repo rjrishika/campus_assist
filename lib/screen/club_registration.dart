@@ -1,13 +1,9 @@
-import 'dart:io';
-
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
-// import 'package:storage_repository/implementations/storage_repository.dart';
 import '../reusable_widget/reusable_widget.dart';
-import 'package:untitled1/reusable_widget/storage_repository.dart';
-
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 class ClubRegistration extends StatefulWidget {
   const ClubRegistration({Key? key}) : super(key: key);
 
@@ -22,10 +18,7 @@ class _ClubRegistrationState extends State<ClubRegistration> {
   TextEditingController instaUrl = TextEditingController();
   TextEditingController twitterUrl = TextEditingController();
   TextEditingController linkedinUrl = TextEditingController();
-
-  void upload_image() async{
-
-  }
+  CollectionReference clubData = FirebaseFirestore.instance.collection('clubs');
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,9 +27,7 @@ class _ClubRegistrationState extends State<ClubRegistration> {
           toolbarHeight: 60,
           actions: [
             IconButton(
-                onPressed: () async{
-
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.notifications_none_rounded))
           ],
           backgroundColor: const Color.fromRGBO(74, 67, 236, 10),
@@ -68,22 +59,9 @@ class _ClubRegistrationState extends State<ClubRegistration> {
                   ),
                   const SizedBox(height: 10,width: 5,),
                   InkWell(
-                    onTap: () async{
+                    onTap: (){
 
-                      final XFile image;
-                      ImagePicker _picker= ImagePicker();
-                      image = (await _picker.pickImage(source: ImageSource.camera))!;
-
-                      if(image == null){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('no image was selected'))
-                      );
-                      }
-                      if(image != null){
-
-                      StorageRepository().uploadImage(image);
-                      print('uploading...');
-                      }
+                      // code to upload Image
 
                     },
                     child: const Text("Upload Image", style: TextStyle(
@@ -119,13 +97,28 @@ class _ClubRegistrationState extends State<ClubRegistration> {
           margin: const EdgeInsets.fromLTRB(0,10,0,20),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
           child: ElevatedButton(
-            onPressed: (){
-    
+            onPressed: () async{
+                await clubData.add({'name': '${clubName.text}',
+                'category': '${clubCategory.text}',
+                'desc': '${clubDesc.text}',
+                'insta': '${instaUrl.text}',
+                  'twitter': '${twitterUrl.text}',
+                'linkedin': '${linkedinUrl.text}',});
 
+                QuickAlert.show(
+                  context: context,
+                  type: QuickAlertType.success,
+                  title: 'Club Added',
+                  text: 'Details saved successfully',
+                  confirmBtnText: 'Ok',
+                  onConfirmBtnTap: ()=>{
+                    Navigator.of(context).pop(),
+                  },
+                  confirmBtnColor: Colors.green,
+                );
+                setState(() {
 
-
-    // That's it to display an alert, use other properties to customize.
-
+                });
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith((states) {

@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
 import 'Club_details.dart';
 
 class Clubs extends StatefulWidget {
@@ -16,7 +17,6 @@ class _ClubsState extends State<Clubs> {
 
   final List<String> items = List<String>.generate(10000, (i) => '$i');
   final firestoreInstance = FirebaseFirestore.instance;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +54,8 @@ class _ClubsState extends State<Clubs> {
                             fontSize: 30,
                             fontWeight: FontWeight.bold),),
                       ),
+
+
     SingleChildScrollView(
     child: Column(
     children: [
@@ -83,6 +85,7 @@ class _ClubsState extends State<Clubs> {
                           child: ListTile(
                             // leading: Image.network(snap['logo'].toString()),
                             title: Text(snap['name'].toString()),
+
                             subtitle: Text(snap['desc'].toString()),
                             onTap: (){
                               name:snap['name'];
@@ -90,6 +93,7 @@ class _ClubsState extends State<Clubs> {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context)=>Club_details(snap: snap,
                                   )));
+
                             },
 
                           )
@@ -100,40 +104,6 @@ class _ClubsState extends State<Clubs> {
                 },
 
             )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //                       Container(
 //                         margin: const EdgeInsets.all(10.0),
@@ -322,7 +292,6 @@ class _ClubsState extends State<Clubs> {
             )
         )
     );
-
   }
 
 }
