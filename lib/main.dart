@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/screen/Club_details.dart';
 import 'package:untitled1/screen/Clubs.dart';
 import 'package:untitled1/screen/Login.dart';
+import 'package:untitled1/screen/attendance/calander_page.dart';
 import 'package:untitled1/screen/club_registration.dart';
+import 'package:untitled1/screen/googlesheets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,7 @@ void main() async {
 
   );
 
-
+  await SheetsFlutter.init();
   runApp(const MyApp());
 }
 
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ClubRegistration(),
+      home: const AttendancePage(),
     );
   }
 }
