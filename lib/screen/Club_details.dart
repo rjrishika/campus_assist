@@ -22,8 +22,7 @@ class Club_details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Scaffold(
+    return Scaffold(
 
           body:Column(
 
@@ -33,11 +32,8 @@ class Club_details extends StatelessWidget {
                  Image.asset('assets/images/event.png'),
                  IconButton(
                    onPressed: (){
-
-
                      Navigator.push(context,
                          MaterialPageRoute(builder: (context)=>Clubs()));
-
                    },
                    icon: Icon(Icons.arrow_back_outlined,size: 40,color:Colors.black,) ,
                  ),
@@ -45,14 +41,17 @@ class Club_details extends StatelessWidget {
              ),),
 
 
-              Positioned(
-                child:  Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: 20),
-                  child: Text(snap['name'].toString(),style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
+              Stack(
+                children:[Positioned(
+                  child:  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: Text(snap['name'].toString(),style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
+
+                  ),
 
                 ),
-
+              ]
               ),
               Container(
                   margin: EdgeInsets.only(bottom: 20),
@@ -84,38 +83,49 @@ class Club_details extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                    children: const <Widget>[
+                    children: <Widget>[
                       InkWell(
                         child: Icon(
                           FontAwesomeIcons.instagram,
                           size: 50,
                         ),
-                        //onTap: launch(snap['insta'].toString()),
+                        onTap: () {
+                          launch(snap['insta'].toString());
+                        },
                       ),
                       InkWell(
                         child:Icon(
                           FontAwesomeIcons.linkedin,
                           size: 50,
                         ),
+                        onTap: () {
+                          launch(snap['linkedin'].toString());
+                        },
                       ),
                       InkWell(
                         child:Icon(
                           FontAwesomeIcons.twitter,
                           size: 50,
                         ),
+                        onTap: () {
+                          launch(snap['twitter'].toString());
+                        },
                       ),
                     ],
                   )
 
               ),
-              Positioned(
-                child:  Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: 20),
-                  child: Text("Activities", style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
+              Stack(
+                children:[ Positioned(
+                  child:  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: Text("Activities", style: TextStyle(color: Colors.black, fontSize: 35, fontWeight: FontWeight.bold),),
+
+                  ),
 
                 ),
-
+                ]
               ),
         // SingleChildScrollView(
         //
@@ -219,8 +229,7 @@ class Club_details extends StatelessWidget {
 ]
         )
 
-        ),
-    );
+        );
 
   }
 }
