@@ -169,10 +169,11 @@ class _AttendancePageState extends State<AttendancePage> {
     SheetsColumn.subject: subjectTextController.text.trim(),
       SheetsColumn.date: _focusedDay.toString()
     };
-    print(feedback);
+
     await SheetsFlutter.insert([feedback]);
     },
-                  child: Container(
+
+                child: Container(
                     color: Color.fromRGBO(74, 67, 236, 10),
                     height: 80.0,
                     width: double.infinity,

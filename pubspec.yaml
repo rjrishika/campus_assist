@@ -41,9 +41,7 @@ dependencies:
   carousel_pro: ^1.0.0
   font_awesome_flutter: ^10.4.0
   quickalert: ^1.0.1
-
   table_calendar: ^3.0.8
-
   get: ^4.6.5
   firebase_storage: ^11.0.16
   image_picker: ^0.8.7+1
@@ -51,8 +49,6 @@ dependencies:
   equatable: ^2.0.5
   cross_file: ^0.3.3+4
   gsheets: ^0.4.2
-
-
 
 dev_dependencies:
   flutter_test:
