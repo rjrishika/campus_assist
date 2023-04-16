@@ -90,7 +90,7 @@ class Club_details extends StatelessWidget {
                           FontAwesomeIcons.instagram,
                           size: 50,
                         ),
-                        onTap: launch(),
+                        //onTap: launch(snap['insta'].toString()),
                       ),
                       InkWell(
                         child:Icon(
