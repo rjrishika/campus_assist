@@ -23,10 +23,13 @@ class SheetsFlutter{
     try {
       final spreadsheet = await _gsheets.spreadsheet(_sheetId);
       
-      _userSheet = await _getWorkSheet(spreadsheet, title: SheetsColumn.subject );
+      _userSheet = await _getWorkSheet(spreadsheet, title: 'Feed' );
 
       final firstRow = SheetsColumn.getCloumns();
       _userSheet!.values.insertRow(1, firstRow);
+
+
+
     }catch(e){
       print(e);
     }
