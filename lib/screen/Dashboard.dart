@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/screen/Clubs.dart';
 import 'package:untitled1/screen/Login.dart';
+import 'package:untitled1/screen/Sidebar.dart';
 
 import '../reusable_widget/reusable_widget.dart';
 

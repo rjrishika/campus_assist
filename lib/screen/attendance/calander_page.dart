@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../../reusable_widget/reusable_widget.dart';
+import '../googlesheets.dart';
+import '../sheetsColumn.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
@@ -75,8 +76,11 @@ class _CalendarPageState extends State<CalendarPage> {
                         setState(() {
                           _selectedDay = selectedDay;
                           _focusedDay =
-                              focusedDay; // update `_focusedDay` here as well
+                              focusedDay; // update `_focusedDay` here as wel
+                          // l
                         });
+                        print(_focusedDay);
+
                       },
                       headerStyle: HeaderStyle(
                           formatButtonVisible: false, titleCentered: true),
@@ -158,7 +162,16 @@ class _CalendarPageState extends State<CalendarPage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () async {
+    final feedback = {
+    SheetsColumn.branch: branchTextController.text.trim(),
+    SheetsColumn.semester: semesterValue.trim(),
+    SheetsColumn.subject: subjectTextController.text.trim(),
+      SheetsColumn.date: _focusedDay.toString()
+    };
+    print(feedback);
+    await SheetsFlutter.insert([feedback]);
+    },
                   child: Container(
                     color: Color.fromRGBO(74, 67, 236, 10),
                     height: 80.0,

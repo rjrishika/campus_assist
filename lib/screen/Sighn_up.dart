@@ -70,11 +70,7 @@ class _Sighn_upState extends State<Sighn_up> {
                 FirebaseAuth.instance
                     .createUserWithEmailAndPassword(email: emailTextController.text,
                     password: passwordTextController.text)
-
                 .then((value){
-
-
-
                   // That's it to display an alert, use other properties to customize.
                   FirebaseFirestore.instance.collection('users').add({'name': userNameTextController.text,'email':emailTextController.text});
                   QuickAlert.show(
