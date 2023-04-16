@@ -105,40 +105,6 @@ class _ClubsState extends State<Clubs> {
 
             )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //                       Container(
 //                         margin: const EdgeInsets.all(10.0),
 //                         decoration: new BoxDecoration(

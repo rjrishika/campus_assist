@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../reusable_widget/reusable_widget.dart';
-
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 class ClubRegistration extends StatefulWidget {
   const ClubRegistration({Key? key}) : super(key: key);
 
@@ -16,6 +18,7 @@ class _ClubRegistrationState extends State<ClubRegistration> {
   TextEditingController instaUrl = TextEditingController();
   TextEditingController twitterUrl = TextEditingController();
   TextEditingController linkedinUrl = TextEditingController();
+  CollectionReference clubData = FirebaseFirestore.instance.collection('clubs');
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -94,8 +97,28 @@ class _ClubRegistrationState extends State<ClubRegistration> {
           margin: const EdgeInsets.fromLTRB(0,10,0,20),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
           child: ElevatedButton(
-            onPressed: (){
+            onPressed: () async{
+                await clubData.add({'name': '${clubName.text}',
+                'category': '${clubCategory.text}',
+                'desc': '${clubDesc.text}',
+                'insta': '${instaUrl.text}',
+                  'twitter': '${twitterUrl.text}',
+                'linkedin': '${linkedinUrl.text}',});
 
+                QuickAlert.show(
+                  context: context,
+                  type: QuickAlertType.success,
+                  title: 'Club Added',
+                  text: 'Details saved successfully',
+                  confirmBtnText: 'Ok',
+                  onConfirmBtnTap: ()=>{
+                    Navigator.of(context).pop(),
+                  },
+                  confirmBtnColor: Colors.green,
+                );
+                setState(() {
+
+                });
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith((states) {
