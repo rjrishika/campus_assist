@@ -21,7 +21,7 @@ void main() async {
       // storageBucket: "campusassistdemo.appspot.com"
     ),
   );
-  await SheetsFlutter.init();
+
   runApp(const MyApp());
 }
 

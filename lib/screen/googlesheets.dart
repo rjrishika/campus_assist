@@ -1,3 +1,4 @@
+import 'package:flutter/src/widgets/editable_text.dart';
 import 'package:untitled1/screen/sheetsColumn.dart';
 import 'package:gsheets/gsheets.dart';
 class SheetsFlutter{
@@ -19,18 +20,22 @@ class SheetsFlutter{
   static Worksheet? _userSheet;
   static final _gsheets = GSheets(_sheetCredentials);
 
-  static Future init()  async{
+  static Future init(TextEditingController subjectTextController)  async{
     try {
       final spreadsheet = await _gsheets.spreadsheet(_sheetId);
       
-      _userSheet = await _getWorkSheet(spreadsheet, title: 'Feed' );
+      _userSheet = await _getWorkSheet(spreadsheet, title: '${subjectTextController.text}' );
+      print(subjectTextController.toString());
+      print(_userSheet);
+
 
       final firstRow = SheetsColumn.getCloumns();
-      _userSheet!.values.insertRow(1, firstRow);
+      _userSheet?.values.insertRow(1, firstRow);
 
 
 
     }catch(e){
+      print('error');
       print(e);
     }
   }
@@ -38,14 +43,19 @@ class SheetsFlutter{
   static Future<Worksheet> _getWorkSheet(
     Spreadsheet spreadsheet, {
       required String title,
-})async{
+
+})
+
+  async{
     try{
       return await spreadsheet.addWorksheet(title);
+      print(title);
+
     }catch(e){
       return spreadsheet.worksheetByTitle(title)! ;
     }
   }
   static Future insert(List<Map<String, dynamic>> rowList) async{
-    _userSheet!.values.map.appendRows(rowList);
+    _userSheet?.values.map.appendRows(rowList);
   }
 }

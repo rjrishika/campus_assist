@@ -165,6 +165,7 @@ class _CalendarPageState extends State<CalendarPage> {
                 ),
                 GestureDetector(
                   onTap: () async {
+                    await SheetsFlutter.init(subjectTextController);
     final feedback = {
     SheetsColumn.branch: branchTextController.text.trim(),
     SheetsColumn.semester: semesterValue.trim(),

@@ -111,22 +111,22 @@ class _AttendancePageState extends State<AttendancePage> {
                       padding: EdgeInsets.all(10),
                       height: 80,
                       child: ElevatedButton(
-                        onPressed: () {
-                          setState(() async{
-                            attendanceBrain.nextRoll();
-                            final feedback = {
-                              SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
-                              SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
-                              SheetsColumn.attendance: 'p'
+                        onPressed: () async{
+                          setState(() {
+    attendanceBrain.nextRoll();
+    });
+
+    final feedback = {
+    SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
+    SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
+    SheetsColumn.attendance: 'p'
 
 
-                            };
-                            print('object');
-                            print(feedback);
+    };
 
                             await SheetsFlutter.insert([feedback]);
 
-                          });
+
 
 
                         },
