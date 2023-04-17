@@ -7,6 +7,7 @@ import 'package:untitled1/screen/Login.dart';
 import 'package:untitled1/screen/attendance/attendance_page.dart';
 import 'package:untitled1/screen/attendance/calander_page.dart';
 import 'package:untitled1/screen/club_registration.dart';
+import 'package:untitled1/screen/studentdata.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
