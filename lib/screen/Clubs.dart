@@ -84,7 +84,7 @@ class _ClubsState extends State<Clubs> {
                       children: snapshot.data!.docs.map((snap){
                         return Card(
                           child: ListTile(
-                            // leading: Image.network(snap['logo'].toString()),
+                             leading: Image.asset('assets/images/logo.png'),
                             title: Text(snap['name'].toString()),
 
                             subtitle: Text(snap['desc'].toString()),

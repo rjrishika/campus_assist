@@ -12,9 +12,7 @@ class AttendancePage extends StatefulWidget {
   State<AttendancePage> createState() => _AttendancePageState();
 }
 
-
 class _AttendancePageState extends State<AttendancePage> {
-
   int attendance = 0;
   @override
   Widget build(BuildContext context) {
@@ -80,29 +78,26 @@ class _AttendancePageState extends State<AttendancePage> {
                       padding: EdgeInsets.all(10),
                       height: 80,
                       child: ElevatedButton(
-                        onPressed: () {
-                          setState(() async{
+                        onPressed: () async {
+
+
+                          final feedback = {
+                            SheetsColumn.roll_no:
+                            attendanceBrain.getRoll().trim(),
+                            SheetsColumn.name:
+                            attendanceBrain.getName().toString().trim(),
+                            SheetsColumn.attendance: 'A'
+                          };
+
+                          await SheetsFlutter.insert([feedback]);
+                          setState(() {
                             attendanceBrain.nextRoll();
-                            final feedback = {
-                              SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
-                              SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
-                              SheetsColumn.attendance: 'A'
-
-
-                            };
-                            print('object');
-                            print(feedback);
-
-                            await SheetsFlutter.insert([feedback]);
-                            // print(attendanceBrain.getName() +
-                            //     attendanceBrain.getRoll() +
-                            //     attendanceBrain.getImgSrc());
                           });
                         },
                         child: Icon(Icons.close),
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.red)),
+                            MaterialStateProperty.all(Colors.red)),
                       ),
                     ),
                   ),
@@ -111,24 +106,21 @@ class _AttendancePageState extends State<AttendancePage> {
                       padding: EdgeInsets.all(10),
                       height: 80,
                       child: ElevatedButton(
-                        onPressed: () async{
+                        onPressed: () async {
+
+
+                          final feedback = {
+                            SheetsColumn.roll_no:
+                                attendanceBrain.getRoll().trim(),
+                            SheetsColumn.name:
+                                attendanceBrain.getName().toString().trim(),
+                            SheetsColumn.attendance: 'P'
+                          };
+
+                          await SheetsFlutter.insert([feedback]);
                           setState(() {
-    attendanceBrain.nextRoll();
-    });
-
-    final feedback = {
-    SheetsColumn.roll_no: attendanceBrain.getRoll().trim(),
-    SheetsColumn.name: attendanceBrain.getName().toString().trim() ,
-    SheetsColumn.attendance: 'p'
-
-
-    };
-
-                            await SheetsFlutter.insert([feedback]);
-
-
-
-
+                            attendanceBrain.nextRoll();
+                          });
                         },
                         child: Icon(Icons.check),
                         style: ButtonStyle(
