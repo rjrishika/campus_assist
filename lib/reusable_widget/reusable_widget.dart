@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled1/screen/attendance/calander_page.dart';
 Image logoWidget(String imageName) {
   return Image.asset(
     imageName,
@@ -131,14 +132,14 @@ Container loginSignupButton(
   );
 }
 
-Drawer appDrawer(){
+Drawer appDrawer(BuildContext context){
   return Drawer(
     child: SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children:  [
             ListTile(
               leading: CircleAvatar(
                 minRadius: 10,
@@ -168,6 +169,9 @@ Drawer appDrawer(){
             ListTile(
               leading: Icon(Icons.bookmark_border),
               title: Text('Attendance'),
+              onTap:(){ Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=> CalendarPage())
+              );},
             ),
 
             //Fee Recipt

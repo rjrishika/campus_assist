@@ -35,7 +35,7 @@ class DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
-            drawer: appDrawer(),
+            drawer: appDrawer(context),
             body: SingleChildScrollView(
               child: Column(children: [
                 Padding(

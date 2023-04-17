@@ -33,7 +33,7 @@ class _CardState extends State<Card1> {
         ),
       ),
     ),
-    drawer: appDrawer(),
+    drawer: appDrawer(context),
     body: SingleChildScrollView(
     child: Container(
     padding: const EdgeInsets.fromLTRB(20,0,20,0),

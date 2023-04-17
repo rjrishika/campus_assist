@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/screen/Club_details.dart';
 import 'package:untitled1/screen/Clubs.dart';
+import 'package:untitled1/screen/Dashboard.dart';
 import 'package:untitled1/screen/Login.dart';
 import 'package:untitled1/screen/attendance/attendance_page.dart';
 import 'package:untitled1/screen/attendance/calander_page.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const CalendarPage(),
+      home: const Dashboard(),
     );
   }
 }

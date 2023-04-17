@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:untitled1/screen/Clubs.dart';
 //import 'package:storage_repository/implementations/storage_repository.dart';
 import '../reusable_widget/storage_repository.dart';
 import '../reusable_widget/reusable_widget.dart';
@@ -48,7 +49,7 @@ class _ClubRegistrationState extends State<ClubRegistration> {
             ),
           ),
         ),
-        drawer: appDrawer(),
+        drawer: appDrawer(context),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.fromLTRB(20,0,20,0),
@@ -135,6 +136,10 @@ class _ClubRegistrationState extends State<ClubRegistration> {
                   confirmBtnText: 'Ok',
                   onConfirmBtnTap: ()=>{
                     Navigator.of(context).pop(),
+
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=> const Clubs())
+                  )
                   },
                   confirmBtnColor: Colors.green,
                 );

@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:untitled1/screen/club_registration.dart';
 
 import 'Club_details.dart';
 
@@ -99,7 +100,7 @@ class _ClubsState extends State<Clubs> {
                           )
                         );
                       }).toList()
-                    )
+                    ),
                   );
                 },
 
@@ -290,7 +291,16 @@ class _ClubsState extends State<Clubs> {
 
 
             )
-        )
+        ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: ()
+    {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const ClubRegistration())
+      );
+    },
+    child: Icon(Icons.add),
+    ),
     );
   }
 
