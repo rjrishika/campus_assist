@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:untitled1/screen/attendance/attendance_page.dart';
 import '../../reusable_widget/reusable_widget.dart';
 import '../googlesheets.dart';
 import '../sheetsColumn.dart';
+
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
@@ -169,10 +171,14 @@ class _CalendarPageState extends State<CalendarPage> {
     SheetsColumn.subject: subjectTextController.text.trim(),
       SheetsColumn.date: _focusedDay.toString()
     };
-    print(feedback);
+
     await SheetsFlutter.insert([feedback]);
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context)=>AttendancePage())
+    );
     },
-                  child: Container(
+
+                child: Container(
                     color: Color.fromRGBO(74, 67, 236, 10),
                     height: 80.0,
                     width: double.infinity,

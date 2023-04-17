@@ -37,15 +37,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.2.7
   firebase_core: ^2.6.0
-  firebase_storage: ^11.0.16
-  url_launcher: ^6.1.10
+  #  url_launcher: ^6.1.10
   cloud_firestore: ^4.4.4
   carousel_pro: ^1.0.0
   font_awesome_flutter: ^10.4.0
   quickalert: ^1.0.1
   table_calendar: ^3.0.8
+  get: ^4.6.5
+  firebase_storage: ^11.0.16
+  image_picker: ^0.8.7+1
+  storage_repository: ^1.1.9
+  equatable: ^2.0.5
+  cross_file: ^0.3.3+4
   gsheets: ^0.4.2
-
 
 
 dev_dependencies:

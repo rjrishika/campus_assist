@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import '../reusable_widget/reusable_widget.dart';
 import 'Clubs.dart';
 
@@ -90,7 +90,7 @@ class Club_details extends StatelessWidget {
                           size: 50,
                         ),
                         onTap: () {
-                          launch(snap['insta'].toString());
+                          // launch(snap['insta'].toString());
                         },
                       ),
                       InkWell(
@@ -99,7 +99,7 @@ class Club_details extends StatelessWidget {
                           size: 50,
                         ),
                         onTap: () {
-                          launch(snap['linkedin'].toString());
+                          // launch(snap['linkedin'].toString());
                         },
                       ),
                       InkWell(
@@ -108,7 +108,7 @@ class Club_details extends StatelessWidget {
                           size: 50,
                         ),
                         onTap: () {
-                          launch(snap['twitter'].toString());
+                          // launch(snap['twitter'].toString());
                         },
                       ),
                     ],
